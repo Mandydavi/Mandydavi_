@@ -1,0 +1,111 @@
+/* 基础样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:rgb(176, 44, 44);
+    height: 2000px; /* 模拟一个长页面 */
+}
+.content {
+    position: relative;
+    top: 195px;
+    color: white;
+    letter-spacing: 7px;/* 文字间隔 */
+    text-align: center;
+}
+.music-button {
+    position: fixed; /* 固定位置 */
+    top: 20px;    /* 距离窗口底部 20px */
+    right: 20px;     /* 距离窗口右侧 20px */
+    z-index: 1000;   /* 确保在最前面，不被其他元素遮挡 */
+}
+.music-button img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer; /* 鼠标移上去变成手指形状 */
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    font-size: 12px;
+    color: rgb(189, 186, 186); /* 白色字体 */
+    animation: bounce 1.5s infinite; /* 默认轻微跳动动画 */
+    cursor: pointer;
+}
+
+/* 点击或滑动后触发的物理弹跳动画 */
+.page-footer.bouncing {
+    animation: drop-and-bounce 1.2s cubic-bezier(0.25, 1, 0.5, 1); /* 自然落下与弹跳 */}
+
+
+/* 常态的跳动动画 */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+}
+
+/* 模拟下落和弹跳的物理效果 */
+@keyframes drop-and-bounce {
+    0% {
+        transform: translateX(-50%) translateY(50);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-60px); /* 下落 */
+    }
+    75% {
+        transform: translateX(-50%) translateY(50px); /* 第一次弹起 */
+    }
+    87.5% {
+        transform: translateX(-50%) translateY(20px); /* 第二次小幅弹动 */
+    }
+    100% {
+        transform: translateX(-50%) translateY(0); /* 回归原位 */
+    }
+}
+
+.one_lk{
+    position: absolute;
+    top: 300px;
+    left: 10%;
+    text-align: center;
+    border: 5px solid #ffffff;
+    z-index: -20;
+}
+.twe_lk{
+    position: absolute;
+    top: 620px;
+    left: 110px;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+}
+.twe_lk p{
+    position: relative;
+    top: -10px;
+    left: 5px;
+    font-size: 20px;
+}
+
+/* 响应式设计：在屏幕宽度小于 768px 时应用的样式 */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    footer p {
+        font-size: 0.8em;
+    }
+
+    main p {
+        font-size: 1.2em;
+    }
+}
+
